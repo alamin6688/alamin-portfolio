@@ -1,26 +1,52 @@
-import { Logo } from "@/assets/icons/Logo";
-import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
+// import { HiRectangleGroup } from "react-icons/hi2";
+// import { IoLogoAmplify, IoMenu } from "react-icons/io5";
+// import { RiCloseLargeFill } from "react-icons/ri";
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
+import { Button } from "./ui/button";
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-} from "@/components/ui/navigation-menu";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+} from "./ui/navigation-menu";
+import { Logo } from "@/assets/icons/Logo";
 
-// Navigation links array to be used in both desktop and mobile menus
-const navigationLinks = [
-  { href: "#", label: "Home" },
-  { href: "#", label: "Projects" },
-  { href: "#", label: "Pricing" },
-  { href: "#", label: "About" },
-];
+export const Navbar = () => {
+  const [activeLink, setActiveLink] = useState("home");
 
-export default function Navbar() {
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      const offset = 50; // Adjust offset for fixed navbar height
+      const sectionPosition =
+        section.getBoundingClientRect().top + window.scrollY; // Get the absolute position
+      const offsetPosition = sectionPosition - offset; // Subtract the offset
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const handleNavClick = (id: string) => {
+    setActiveLink(id);
+    scrollToSection(id);
+  };
+  const navigationLinks = [
+    { id: "home", label: "Home" },
+    { id: "about", label: "About" },
+    { id: "skills", label: "Skills" },
+    { id: "works", label: "My Works" },
+    // { id: "blogs", label: "Blogs" },
+    { id: "contact", label: "Contact Me" },
+  ];
+
+  // Set default active link when the component mounts
+  useEffect(() => {
+    setActiveLink("home");
+  }, []);
+
   return (
     <header className="border-b px-4 md:px-6">
       <div className="flex h-16 items-center justify-between gap-4">
@@ -67,9 +93,14 @@ export default function Navbar() {
                   {navigationLinks.map((link, index) => (
                     <NavigationMenuItem key={index} className="w-full">
                       <NavigationMenuLink
-                        href={link.href}
-                        className="py-1.5"
-                        // active={link.active}
+                        href={`#${link.id}`}
+                        className={`py-1.5 ${
+                          activeLink === link.id ? "text-white" : "text-zinc-50"
+                        }`}
+                        onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                          e.preventDefault();
+                          handleNavClick(link.id);
+                        }}
                       >
                         {link.label}
                       </NavigationMenuLink>
@@ -92,9 +123,16 @@ export default function Navbar() {
             {navigationLinks.map((link, index) => (
               <NavigationMenuItem key={index}>
                 <NavigationMenuLink
-                  // active={link.active}
-                  href={link.href}
-                  className="text-white/90 hover:text-primary py-1.5 font-medium"
+                  href={`#${link.id}`}
+                  className={`py-1.5 font-medium ${
+                    activeLink === link.id
+                      ? "text-white border-b-2 border-b-pink-500"
+                      : "text-white/90 hover:text-primary"
+                  }`}
+                  onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                    e.preventDefault();
+                    handleNavClick(link.id);
+                  }}
                 >
                   {link.label}
                 </NavigationMenuLink>
@@ -115,4 +153,4 @@ export default function Navbar() {
       </div>
     </header>
   );
-}
+};
