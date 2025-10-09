@@ -1,0 +1,101 @@
+#image-gradient {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+#layer-blur {
+  height: 0;
+  width: 30rem;
+  position: absolute;
+  top: 20%;
+  right: 0;
+  box-shadow: 0 0 700px 15px white;
+  rotate: -30deg;
+  z-index: -1;
+}
+
+:root {
+  --robot-max-size: 1320px;
+}
+
+.hero-root {
+  position: relative;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  right: -10%;
+}
+
+.hero-text {
+  padding: 1rem 0;
+}
+
+.hero-visual {
+  min-height: 12rem;
+}
+
+.robot-3d {
+  width: calc(var(--robot-max-size) * 0.9);
+  max-width: 100%;
+  height: auto;
+}
+
+/* scale down on medium/small screens */
+@media (max-width: 1024px) {
+  :root {
+    --robot-max-size: 480px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --robot-max-size: 480px;
+  }
+  .hero-inner {
+    padding: 2rem 0;
+    right: 0;
+  }
+  .hero-text {
+    text-align: center;
+  }
+}
+
+.robot-placeholder {
+  z-index: 2;
+}
+
+/* Typewriter cursor animation */
+.typewriter-cursor {
+  display: inline-block;
+  margin-left: 4px;
+  animation: typewriter-blink 1s steps(2, start) infinite;
+}
+
+@keyframes typewriter-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* visually hidden helper for screen readers */
+.sr-only {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+  border: 0;
+  padding: 0;
+  margin: -1px;
+}
