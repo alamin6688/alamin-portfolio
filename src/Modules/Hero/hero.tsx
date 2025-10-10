@@ -95,7 +95,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="hero-root h-[600px] mx-auto flex items-center justify-center px-4">
+    <div className="hero-root h-[600px] mx-auto flex items-center justify-center px-4 max-w-screen-2xl">
       <img
         id="image-gradient"
         src="https://i.postimg.cc/TwfMf6kj/gradient.png"
@@ -104,7 +104,7 @@ const Hero = () => {
       <div id="layer-blur"></div>
 
       <div className="hero-inner w-full flex flex-col md:flex-row items-center md:items-stretch gap-8">
-        <div className="hero-text flex-1 flex items-center justify-center">
+        <div className="hero-text flex-1 flex items-center justify-start w-full">
           <div className="space-y-3">
             <h1 className="text-white text-3xl md:text-6xl">
               Fuade Hasan Alamin
@@ -147,7 +147,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="hero-visual flex-1 flex items-center justify-center relative">
+        <div className="hero-visual flex-1 flex items-center justify-center relative lg:w-1/2">
           <div
             ref={viewerContainer}
             aria-hidden={false}
