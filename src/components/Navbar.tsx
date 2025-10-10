@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   const [activeLink, setActiveLink] = useState("home");
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
@@ -47,8 +48,24 @@ export const Navbar = () => {
     setActiveLink("home");
   }, []);
 
+  useEffect(() => {
+    setActiveLink("home");
+
+    const handleScroll = () => {
+      if (window.scrollY > 50) setIsScrolled(true);
+      else setIsScrolled(false);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="border-b">
+    <div
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-black/70 backdrop-blur-md shadow-md" : "bg-transparent"
+      }`}
+    >
       <header className="px-4 md:px-6 container mx-auto">
         <div className="flex h-16 items-center justify-between gap-4">
           {/* Left side */}
@@ -117,7 +134,7 @@ export const Navbar = () => {
             <div className="flex items-center gap-6">
               <a href="#" className="text-primary  hover:text-primary/90">
                 {/* <Logo /> */}
-                <Link to="home">
+                <Link to="#home" onClick={() => handleNavClick("home")}>
                   <h1 className="text-3xl text-indigo-600 font-sans font-bold">
                     DEV <span>.</span>
                   </h1>
