@@ -1,4 +1,4 @@
-import React from "react";
+
 
 const Skills = () => {
   // Custom array of objects with skills in the specified order

@@ -165,17 +165,8 @@ const About = ({
           <div className="flex items-center justify-center">
             <div className="w-full h-full rounded-lg border-l border-r border-indigo-500 bg-transparent p-4 text-center shadow-lg dark:bg-gray-800 flex items-center justify-center">
               <div>
-                <figure className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-indigo-500 dark:bg-indigo-600">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="48"
-                    height="48"
-                    fill="currentColor"
-                    className="bi bi-person-fill text-white dark:text-indigo-300"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
-                  </svg>
+                <figure className="mx-auto mb-4 flex h-24 w-24 items-center justify-center rounded-full bg-indigo-500 dark:bg-indigo-600">
+                  <img src="https://i.postimg.cc/W3b5kTjT/IMG20230806161044-1.jpg" alt="" className="rounded-full h-24 w-24 object-cover"/>
                   <figcaption className="sr-only">
                     Fuade Hasan Alamin, Web Developer
                   </figcaption>
@@ -187,17 +178,18 @@ const About = ({
                   Web Developer
                 </p>
                 <div className="flex items-center justify-center">
-                  <a
+                  {/* <a
                     href="#"
                     className="rounded-full bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700 dark:bg-indigo-400 dark:hover:bg-indigo-500"
                   >
                     Contact
-                  </a>
+                  </a> */}
                   <a
-                    href="#"
+                    href="https://github.com/alamin6688"
+                    target="_blank"
                     className="ml-4 rounded-full bg-gray-300 px-4 py-2 hover:bg-gray-400 dark:bg-gray-700 dark:hover:bg-gray-600"
                   >
-                    Portfolio
+                    GitHub
                   </a>
                 </div>
               </div>
