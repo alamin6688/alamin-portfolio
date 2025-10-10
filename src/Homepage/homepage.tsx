@@ -9,7 +9,7 @@ import Skills from "@/Modules/Skills/Skills";
 const Homepage = () => {
   return (
     <>
-      <div className="px-4 lg:px-0">
+      <div className="px-4">
         <Navbar />
         <Hero />
         <About />
