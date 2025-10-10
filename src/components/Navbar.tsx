@@ -11,6 +11,7 @@ import {
   NavigationMenuList,
 } from "./ui/navigation-menu";
 import { Logo } from "@/assets/icons/Logo";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   const [activeLink, setActiveLink] = useState("home");
@@ -142,13 +143,15 @@ export const Navbar = () => {
         </NavigationMenu>
         {/* Right side */}
         <div className="flex items-center gap-2">
-          <Button asChild size="sm" className="text-sm">
-            <button className="relative px-8 py-3 bg-black text-white font-semibold rounded-lg border-2 border-purple-500 hover:border-purple-400 transition-all duration-300 hover:shadow-[0_0_20px_10px_rgba(168,85,247,0.6)] active:scale-95 active:shadow-[0_0_10px_5px_rgba(168,85,247,0.4)] group">
-              <span>Hire Me</span>
+          <Link to="#contact" onClick={() => handleNavClick("contact")}>
+            <Button asChild size="sm" className="text-sm">
+              <button className="relative px-8 py-3 bg-black text-white font-semibold rounded-lg border-2 border-purple-500 hover:border-purple-400 transition-all duration-300 hover:shadow-[0_0_20px_10px_rgba(168,85,247,0.6)] active:scale-95 active:shadow-[0_0_10px_5px_rgba(168,85,247,0.4)] group">
+                <span>Hire Me</span>
 
-              <span className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-purple-500/20 to-indigo-500/20"></span>
-            </button>
-          </Button>
+                <span className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-purple-500/20 to-indigo-500/20"></span>
+              </button>
+            </Button>
+          </Link>
         </div>
       </div>
     </header>

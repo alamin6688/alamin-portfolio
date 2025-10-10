@@ -1,10 +1,9 @@
-
 import { Navbar } from "@/components/Navbar";
-// import { Timeline } from "@/components/ui/timeline";
 import About from "@/Modules/About/About";
 import Contact from "@/Modules/Contact/Contact";
 import Hero from "@/Modules/Hero/hero";
 import { Projects } from "@/Modules/Projects/Projects";
+import Skills from "@/Modules/Skills/Skills";
 
 
 const Homepage = () => {
@@ -15,8 +14,8 @@ const Homepage = () => {
       <Navbar />
       <Hero />
       <About/>
-
       <Projects/>
+      <Skills/>
       <Contact/>
     </div>
     </>
