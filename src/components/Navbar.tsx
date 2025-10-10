@@ -37,7 +37,7 @@ export const Navbar = () => {
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
     { id: "skills", label: "Skills" },
-    { id: "works", label: "My Works" },
+    { id: "projects", label: "Projects" },
     // { id: "blogs", label: "Blogs" },
     { id: "contact", label: "Contact Me" },
   ];
